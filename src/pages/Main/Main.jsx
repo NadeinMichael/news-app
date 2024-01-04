@@ -1,7 +1,7 @@
 import LatestNews from '../../components/LatestNews/LatestNews';
+import NewsByFilters from '../../components/NewsByFilters/NewsByFilters';
 
 import styles from './styles.module.css';
-import NewsByFilters from '../../components/NewsByFilters/NewsByFilters';
 
 const Main = () => {
   return (
