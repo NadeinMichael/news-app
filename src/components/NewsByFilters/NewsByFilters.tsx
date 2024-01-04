@@ -10,6 +10,7 @@ import { useFetch } from '../../helpers/hooks/useFetch';
 import { getNews } from '../../api/apiNews';
 
 import styles from './styles.module.css';
+import { NewsApiResponse, ParamsType } from '../../interfaces';
 
 const NewsByFilters = () => {
   const { filters, changeFilter } = useFilters({
@@ -19,9 +20,9 @@ const NewsByFilters = () => {
     keywords: '',
   });
 
-  const debouncedKeywords = useDebounce(filters.keywords, 1500);
+  const debouncedKeywords = useDebounce(filters.keywords as string, 1500);
 
-  const { data, isLoading } = useFetch(getNews, {
+  const { data, isLoading } = useFetch<NewsApiResponse, ParamsType>(getNews, {
     ...filters,
     keywords: debouncedKeywords,
   });
@@ -38,7 +39,7 @@ const NewsByFilters = () => {
     }
   };
 
-  const handlePageClick = (pageNumber) => {
+  const handlePageClick = (pageNumber: number) => {
     changeFilter('page_number', pageNumber);
   };
 
