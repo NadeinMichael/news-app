@@ -4,13 +4,14 @@ import NewsList from '../NewsList/NewsList';
 import PaginationWrapper from '../PaginationWrapper/PaginationWrapper';
 import NewsFilters from '../NewsFilters/NewsFilters';
 
+import { NewsApiResponse, ParamsType } from '../../interfaces';
+
 import { useFilters } from '../../helpers/hooks/useFilters';
 import { useDebounce } from '../../helpers/hooks/useDebounce';
 import { useFetch } from '../../helpers/hooks/useFetch';
 import { getNews } from '../../api/apiNews';
 
 import styles from './styles.module.css';
-import { NewsApiResponse, ParamsType } from '../../interfaces';
 
 const NewsByFilters = () => {
   const { filters, changeFilter } = useFilters({
